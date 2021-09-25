@@ -1,8 +1,7 @@
-// @ts-nocheck
 import { createRouter, createWebHashHistory } from "vue-router";
 import Layout from "../components/layout/index.vue";
 
-const routes = [
+const routes: import("vue-router").RouteRecordRaw[] = [
   {
     path: "/",
     redirect: "/main",
@@ -75,7 +74,7 @@ const router = createRouter({
 //   // from: 從哪個路徑跳轉過來
 //   // next: 是一個函數, 放行
 //   if (to.path === "/login") return next();
-  
+
 //   // 獲取 token
 //   const tokenStr = window.sessionStorage.getItem("token");
 //   if (!tokenStr) return next("/login");
