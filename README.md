@@ -6,7 +6,7 @@
 | axios         | http請求      |
 | bcryptjs      | 密碼加密      |
 | nprogress     | loading ui   |
-| vue-quill-editor   | 文字編輯      |
+| vue-quill-editor   | 文字編輯介面      |
 | element-plus  | ui庫          |
 | vue-router       | 路由  |
   
