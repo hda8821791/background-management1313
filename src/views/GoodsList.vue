@@ -102,7 +102,12 @@
 
 <script lang="ts">
 // @ts-nocheck
-import { onMounted, reactive, toRefs } from "@vue/runtime-core";
+import {
+  onMounted,
+  reactive,
+  toRefs,
+  defineComponent,
+} from "@vue/runtime-core";
 import axios from "../utils/axios";
 import AddProduct from "../components/Goods/AddProduct.vue";
 import EditProduct from "../components/Goods/EditProduct.vue";
@@ -209,7 +214,7 @@ function useDelete(state) {
   return { handleDelete };
 }
 
-export default {
+export default defineComponent({
   components: { AddProduct, EditProduct },
   setup() {
     const state = reactive({
@@ -257,5 +262,5 @@ export default {
       changePage,
     };
   },
-};
+});
 </script>

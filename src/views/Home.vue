@@ -1,13 +1,8 @@
-<template>
-  Home Page
-</template>
+<template>Home Page</template>
 
-<script>
-export default {
+<script>import { defineComponent } from "vue";
 
-}
+export default defineComponent({});
 </script>
 
-<style>
-
-</style>
+<style></style>

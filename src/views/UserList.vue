@@ -74,7 +74,13 @@
 
 <script lang="ts">
 // @ts-nocheck
-import { onMounted, provide, reactive, toRefs } from "@vue/runtime-core";
+import {
+  onMounted,
+  provide,
+  reactive,
+  toRefs,
+  defineComponent,
+} from "@vue/runtime-core";
 import axios from "../utils/axios";
 import User_CU from "../components/Users/User_CU.vue";
 import zhCn from "element-plus/lib/locale/lang/zh-tw";
@@ -127,7 +133,7 @@ function useElement(state, dialogTableVisible, uid) {
   };
 }
 
-export default {
+export default defineComponent({
   components: {
     User_CU,
   },
@@ -214,7 +220,7 @@ export default {
       handle_D,
     };
   },
-};
+});
 </script>
 
 <style>

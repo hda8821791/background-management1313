@@ -56,9 +56,9 @@
   </el-container>
 </template>
 
-<script>
+<script lang="ts">
 // @ts-nocheck
-import { onMounted, reactive, toRefs } from "@vue/runtime-core";
+import { onMounted, reactive, toRefs, defineComponent } from "vue";
 import axios from "../../utils/axios";
 import router from "../../router";
 const url = import.meta.env.VITE_APP_URL;
@@ -68,7 +68,7 @@ async function useLoadMenuData(state) {
     state.menuData = res.data.menu;
   });
 }
-export default {
+export default defineComponent({
   setup() {
     const state = reactive({
       menuData: [],
@@ -101,7 +101,7 @@ export default {
       saveNavPath,
     };
   },
-};
+});
 </script>
 
 <style>

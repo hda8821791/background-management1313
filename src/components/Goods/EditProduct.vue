@@ -38,7 +38,6 @@
       <el-form-item label="商品詳情" prop="goodsDetail">
         <QuillEditor theme="snow" ref="editor"></QuillEditor>
       </el-form-item>
-
     </el-form>
 
     <template #footer>
@@ -53,7 +52,7 @@
 <script lang="ts">
 // @ts-nocheck
 
-import { reactive, toRefs, ref } from "@vue/reactivity";
+import { reactive, toRefs, ref, defineComponent } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import axios from "../../utils/axios";
@@ -109,7 +108,7 @@ function useLoadEditData(state, editor) {
   });
 }
 
-export default {
+export default defineComponent({
   props: {
     editDialogVisible: Boolean,
     goodsId: Number,
@@ -174,7 +173,7 @@ export default {
       handleBeforeUpload,
     };
   },
-};
+});
 </script>
 
 <style>

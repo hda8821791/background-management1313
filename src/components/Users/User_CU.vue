@@ -34,7 +34,15 @@
 <script lang="ts">
 // @ts-nocheck
 import axios from "axios";
-import { inject, onMounted, reactive, ref, ToRefs, toRefs } from "vue";
+import {
+  inject,
+  onMounted,
+  reactive,
+  ref,
+  ToRefs,
+  toRefs,
+  defineComponent,
+} from "vue";
 import { encodeBase64 } from "bcryptjs";
 
 interface State {
@@ -83,7 +91,7 @@ function useElemet(state, formRef, handle_CU, uid) {
   };
 }
 
-export default {
+export default defineComponent({
   name: "User_CU",
   setup() {
     const formRef = ref();
@@ -137,7 +145,7 @@ export default {
       ...useElemet(state, formRef, handle_CU, uid),
     };
   },
-};
+});
 </script>
 
 <style></style>

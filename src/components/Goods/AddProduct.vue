@@ -43,7 +43,7 @@
 <script lang="ts">
 // @ts-nocheck
 
-import { reactive, toRefs, ref } from "@vue/reactivity";
+import { reactive, toRefs, ref, defineComponent } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 import axios from "../../utils/axios";
@@ -97,7 +97,7 @@ const handleBeforeUpload = (file) => {
   }
 };
 
-export default {
+export default defineComponent({
   props: {
     centerDialogVisible: Boolean,
   },
@@ -153,7 +153,7 @@ export default {
       handleBeforeUpload,
     };
   },
-};
+});
 </script>
 
 <style>

@@ -24,7 +24,7 @@
 
 <script lang="ts">
 // @ts-nocheck
-import { reactive, toRefs, ref } from "vue";
+import { reactive, toRefs, ref, defineComponent } from "vue";
 import axios from "../utils/axios";
 import { ElNotification, ElMessage } from "element-plus";
 import router from "../router";
@@ -74,7 +74,7 @@ function useElement(state, loginFormRef) {
   };
 }
 
-export default {
+export default defineComponent({
   setup() {
     const loginFormRef = ref();
     const state = reactive({
@@ -101,7 +101,7 @@ export default {
       ...useElement(state, loginFormRef),
     };
   },
-};
+});
 </script>
 
 <style>

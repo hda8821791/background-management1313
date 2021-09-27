@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Layout from "../components/layout/index.vue";
+import Layout from "../components/Layout/index.vue";
 
 const routes: import("vue-router").RouteRecordRaw[] = [
   {
