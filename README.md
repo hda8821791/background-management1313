@@ -21,4 +21,4 @@ ajax請求使用了axios模組
 ## Links
 
 展示連結 [後臺管理介面](https://background-management1313.vercel.app).<br>
-後端[github](https://github.com/hda8821791/background-management-db1313)
+後端 [github](https://github.com/hda8821791/background-management-db1313)
