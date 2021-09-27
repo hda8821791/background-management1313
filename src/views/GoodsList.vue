@@ -127,7 +127,7 @@ function loadData(state) {
   }
 
   axios
-    .get(`${url}/goods`, {
+    .get(`/goods`, {
       params: {
         query,
       },
@@ -165,7 +165,7 @@ function useHandleSearch(state) {
     }
 
     axios
-      .get(`${url}/goods`, {
+      .get(`/goods`, {
         params: {
           query,
         },
@@ -189,7 +189,7 @@ function useDelete(state) {
       type: "warning",
       callback: (action) => {
         if (action === "confirm") {
-          axios.delete(`${url}/goods/${row._id}`).then((res) => {
+          axios.delete(`/goods/${row._id}`).then((res) => {
             if (res.statusText === "OK") {
               ElNotification({
                 title: "成功",

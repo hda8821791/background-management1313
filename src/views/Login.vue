@@ -42,7 +42,7 @@ function useElement(state, loginFormRef) {
         where: state.loginForm,
       };
       axios
-        .post(`${url}/auth/login`, {
+        .post(`/auth/login`, {
           username: state.loginForm.username,
           password: state.loginForm.password,
         })

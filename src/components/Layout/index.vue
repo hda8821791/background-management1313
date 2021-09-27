@@ -64,7 +64,7 @@ import router from "../../router";
 const url = import.meta.env.VITE_APP_URL;
 // 載入導航欄
 async function useLoadMenuData(state) {
-  await axios.get(`${url}/goods/menu`).then((res) => {
+  await axios.get(`/goods/menu`).then((res) => {
     state.menuData = res.data.menu;
   });
 }

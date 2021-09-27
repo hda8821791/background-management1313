@@ -77,7 +77,7 @@ function useEdit(state, vildateForm, editor, emit) {
           goodsDetail: state.goodsForm.goodsDetail,
         };
 
-        axios.put(`${url}/goods/${state.goodsId}`, data).then((res) => {
+        axios.put(`/goods/${state.goodsId}`, data).then((res) => {
           vildateForm.value.resetFields(); //? 重置表單
           editor.value.setText(""); //? 清空文字編輯器
           emit("onCloseDialog", false, res.data); //? 觸發關閉事件, 傳送響應資料給父組件
@@ -101,7 +101,7 @@ const handleBeforeUpload = (file) => {
 
 //? 根據商品編號, 查詢要編輯的數據
 function useLoadEditData(state, editor) {
-  axios.get(`${url}/goods/${state.goodsId}`).then((res) => {
+  axios.get(`/goods/${state.goodsId}`).then((res) => {
     state.goodsForm = res.data;
     state.imageUrl = res.data.coverImg;
     editor.value.setHTML(res.data.goodsDetail);

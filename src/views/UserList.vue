@@ -101,7 +101,7 @@ function useLoadData(state) {
     query.where = { username: { $regex: state.searchContent } };
   }
 
-  axios.get(`${url}/users`, { params: { query } }).then((res) => {
+  axios.get(`/users`, { params: { query } }).then((res) => {
     state.tabelData = res.data.data;
     state.total = res.data.total;
     // console.log(res.data);
@@ -178,7 +178,7 @@ export default defineComponent({
         type: "warning",
       })
         .then(() => {
-          axios.delete(`${url}/users/${id}`).then((res) => {
+          axios.delete(`/users/${id}`).then((res) => {
             if (res.status === 200) {
               ElNotification({
                 title: "刪除成功",

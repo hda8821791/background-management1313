@@ -56,7 +56,7 @@ const url = import.meta.env.VITE_APP_URL;
 // 載入用戶數具
 function locadUserData(uid: ToRefs, state: State) {
   if (uid.value !== "") {
-    axios.get(`${url}/users/${uid.value}`).then((res) => {
+    axios.get(`/users/${uid.value}`).then((res) => {
       const pass = encodeBase64(res.data.password, 10);
       state.form.username = res.data.username;
       state.form.password = pass;
@@ -72,13 +72,13 @@ function useElemet(state, formRef, handle_CU, uid) {
         if (uid.value !== "") {
           // console.log("uid.value", uid.value);
           axios
-            .put(`${url}/users/${uid.value}`, formRef.value.model)
+            .put(`/users/${uid.value}`, formRef.value.model)
             .then((res) => {
               handle_CU({ isShow: false, data: res.data });
             });
           // console.log("修改", uid.value);
         } else {
-          axios.post(`${url}/users`, formRef.value.model).then((res) => {
+          axios.post(`/users`, formRef.value.model).then((res) => {
             handle_CU({ isShow: false, data: res.data });
           });
           // console.log("新增", uid.value);

@@ -69,7 +69,7 @@ function useAdd(state, vildateForm, editor, emit) {
           goodsDetail: state.goodsForm.goodsDetail,
         };
 
-        axios.post(`${url}/goods`, params).then(
+        axios.post(`/goods`, params).then(
           (res) => {
             vildateForm.value.resetFields(); //? 重置表單
             editor.value.setText(""); //? 清空文字編輯器
