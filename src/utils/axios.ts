@@ -7,7 +7,9 @@ import "nprogress/nprogress.css";
 
 const axios = Axios.create({
   timeout: 10000,
-  baseURL: "https://background-management-db1313.herokuapp.com",
+  baseURL:
+    import.meta.env.VITE_APP_URL ||
+    "https://background-management-db1313.herokuapp.com",
 });
 
 axios.interceptors.request.use(

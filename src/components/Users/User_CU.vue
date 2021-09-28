@@ -33,7 +33,7 @@
 
 <script lang="ts">
 // @ts-nocheck
-import axios from "axios";
+import axios from "../../utils/axios";
 import {
   inject,
   onMounted,
