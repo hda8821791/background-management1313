@@ -19,17 +19,17 @@
       <el-aside class="el-aside" :width="isCollapse ? '60px' : '200px'">
         <div class="toggle-button" @click="openCollapse">|||</div>
         <el-menu
-          :default-active="activePath"
-          class="el-menu-vertical-demo"
-          background-color="#545c64"
-          text-color="#fff"
           active-text-color="#ffd04b"
+          background-color="#545c64"
+          class="el-menu-vertical-demo"
+          :default-active="activePath"
+          text-color="#fff"
           :collapse="isCollapse"
-          :collapse-transition="false"
+          :collapse-transition="true"
           router
         >
           <!-- 一級菜單 -->
-          <el-submenu
+          <el-sub-menu
             v-for="(item, index) in menuData"
             :index="index"
             :key="index"
@@ -46,7 +46,7 @@
               @click="saveNavPath(subItem.path)"
               >{{ subItem.title }}</el-menu-item
             >
-          </el-submenu>
+          </el-sub-menu>
         </el-menu>
       </el-aside>
       <el-main class="el-main">
