@@ -2,17 +2,17 @@
   <el-container class="el-container">
     <el-header class="el-header">
       <div class="header-div">
-        <router-link to="/login">
+        <router-link to="/" @click="clearPath">
           <img src="../../assets/logo.png" alt="logo" />
           <span> 後台管理系統 </span>
-          <el-button
-            style="float: right"
-            type="info"
-            size="default"
-            @click="logout"
-            >退出</el-button
-          >
         </router-link>
+        <el-button
+          style="float: right; margin-top: 0.5%"
+          type="info"
+          size="default"
+          @click="logout"
+          >退出</el-button
+        >
       </div>
     </el-header>
     <el-container>
@@ -23,9 +23,10 @@
           background-color="#545c64"
           class="el-menu-vertical-demo"
           :default-active="activePath"
+          :open="handleOpen"
           text-color="#fff"
           :collapse="isCollapse"
-          :collapse-transition="true"
+          :collapse-transition="false"
           router
         >
           <!-- 一級菜單 -->
@@ -36,7 +37,7 @@
           >
             <!-- 一級菜單的模板區域 -->
             <template #title>
-              <i class="el-icon-location"></i>
+              <i :class="item.icon"></i>
               <span>{{ item.title }}</span>
             </template>
             <el-menu-item
@@ -73,7 +74,7 @@ export default defineComponent({
     const state = reactive({
       menuData: [],
       isCollapse: false,
-      activePath: "",
+      activePath: window.sessionStorage.getItem("activePath") || "",
     });
     // 導航欄顯示切換
     const openCollapse = () => {
@@ -90,21 +91,33 @@ export default defineComponent({
       window.sessionStorage.setItem("activePath", activePath);
       state.activePath = activePath;
     };
+    const handleOpen = (key: any, keyPath: any) => {
+      console.log("key", key);
+      console.log("keyPath", keyPath);
+    };
+    const clearPath = () => {
+      window.sessionStorage.setItem("activePath", "");
+      state.activePath = "";
+    };
     onMounted(() => {
       useLoadMenuData(state);
-      state.activePath = window.sessionStorage.getItem("activePath");
+      // console.log(state.activePath);
     });
     return {
       ...toRefs(state),
       openCollapse,
       logout,
       saveNavPath,
+      handleOpen,
+      clearPath,
     };
   },
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
+$color: rgb(233, 147, 147);
+
 .el-container {
   height: 1000px;
 }
@@ -136,5 +149,8 @@ export default defineComponent({
 a {
   text-decoration: none;
   color: #fff;
+}
+@media screen and (max-width: 400px) {
+ 
 }
 </style>

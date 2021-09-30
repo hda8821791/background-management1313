@@ -8,13 +8,13 @@
     </template>
 
     <el-row :gutter="10">
-      <el-col :span="4" :offset="0">
+      <el-col :span="searchRow[0]" :offset="0" class="searchContent">
         <el-input
           placeholder="請輸入商品名稱"
           v-model="searchContent"
         ></el-input>
       </el-col>
-      <el-col :span="4" :offset="0">
+      <el-col :span="searchRow[1]" :offset="0">
         <el-button type="primary" size="default" @click="handleSearch"
           >搜索</el-button
         >
@@ -225,11 +225,25 @@ export default defineComponent({
       currentPage: 1,
       pageSize: 3,
       searchContent: "", //? 搜索條件
-      pId: 0, //? 要編輯的商品編號
+      pId: 0, //?
+      searchRow: [4, 4],
     });
+
+    let width = window.innerWidth;
+    window.addEventListener("resize", () => {
+      width = window.innerWidth;
+      handleSearchRow();
+    });
+    const handleSearchRow = () => {
+      if (width <= 400) {
+        state.searchRow = [8, 16];
+      }
+      console.log(state.searchRow);
+    };
 
     onMounted(() => {
       loadData(state);
+      handleSearchRow()
     });
 
     //? 新增商品信息
@@ -264,3 +278,4 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss" scoped></style>
